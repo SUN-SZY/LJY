@@ -46,7 +46,7 @@ def get_words():
   words = requests.get("https://api.shadiao.pro/chp")
   if words.status_code != 200:
     return get_words()
-  return words.json()['data']['content']
+  return words.json()['data']['text']
   # icbapi = 'http://open.iciba.com/dsapi/'
   # eed = requests.get(icbapi)
   # bee = eed.json()  # 返回的数据
@@ -75,10 +75,10 @@ print(res)
 
 
 # 日子很苦，有你很甜！
-#        \t\t{{words.DATA}}
+#        {{words.DATA}}
 #
-# 今日天气 :\t{{weather.DATA}}
-# 当前温度 :\t{{temperature.DATA}}℃
+# 今日天气 :{{weather.DATA}}
+# 当前温度 :{{temperature.DATA}}℃
 # 我们相识了{{love_days.DATA}}天
 # 你还有{{birthday_left.DATA}}天生日
 
