@@ -43,7 +43,7 @@ def get_birthday():
   return (next - today).days
 
 def get_words():
-  words = requests.get("https://saying.api.azwcl.com/saying/get")
+  words = requests.get("https://api.shadiao.pro/chp")
   if words.status_code != 200:
     return get_words()
   return words.json()['data']['content']
@@ -74,9 +74,11 @@ res = wm.send_template(user_id, template_id, data)
 print(res)
 
 
-# 今日天气 :{{weather.DATA}}
-# 当前温度 :{{temperature.DATA}}℃
-# 我们相识了:{{love_days.DATA}}天
-# 还有{{birthday_left.DATA}}天生日
-# 每日一句
-# {{words.DATA}}
+# 日子很苦，有你很甜！
+#        \t\t{{words.DATA}}
+#
+# 今日天气 :\t{{weather.DATA}}
+# 当前温度 :\t{{temperature.DATA}}℃
+# 我们相识了{{love_days.DATA}}天
+# 你还有{{birthday_left.DATA}}天生日
+
