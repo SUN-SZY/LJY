@@ -31,7 +31,7 @@ def get_weather():
   return weather['weather'], math.floor(weather['temp'])
 
 def get_count():
-  start_dat = '2019-05-20'
+  start_dat = '2019-05-29'
   delta = today - datetime.strptime(start_dat, "%Y-%m-%d")
   # delta = datetime.now()
   return delta.days
@@ -43,10 +43,17 @@ def get_birthday():
   return (next - today).days
 
 def get_words():
-  words = requests.get("https://api.shadiao.pro/chp")
-  if words.status_code != 200:
-    return get_words()
-  return words.json()['data']['text']
+  # words = requests.get("https://api.shadiao.pro/chp")
+  # if words.status_code != 200:
+  #   return get_words()
+  # return words.json()['data']['text']
+  icbapi = 'http://open.iciba.com/dsapi/'
+  eed = requests.get(icbapi)
+  bee = eed.json()  # 返回的数据
+  english = bee['content']
+  zh_CN = bee['note']
+  str =  english + '\n' + zh_CN
+  return str
 
 def get_random_color():
   return "#%06x" % random.randint(0, 0xFFFFFF)
