@@ -31,7 +31,7 @@ def get_weather():
   return weather['weather'], math.floor(weather['temp'])
 
 def get_count():
-  start_dat = '2019-05-29'
+  start_dat = '2021-04-07'
   delta = today - datetime.strptime(start_dat, "%Y-%m-%d")
   # delta = datetime.now()
   return delta.days
